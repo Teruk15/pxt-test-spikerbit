@@ -389,22 +389,6 @@ namespace spikerbit {
     }
 
     /**
-     * Return last measured value of the EEG signal
-     */
-
-    //% group="Brain"
-    //% weight=61
-    //% block="brain signal"
-    export function brainSignal(): number {
-        if (buffer.length > 0 && signalType == Signal.EEG) {
-            return buffer[buffer.length - 1];
-        }
-        else {
-            return 0;
-        }
-    }
-
-    /**
          * Return alpha waves power
          */
 
