@@ -368,39 +368,4 @@ namespace spikerbit {
             return 0;
         }
     }
-
-    /**
-     * Start recording EEG signal
-     */
-
-    //% group="Brain"
-    //% weight=62
-    //% block="start brain recording"
-    export function startBrainRecording(): void {
-        signalType = Signal.EEG;
-        calculateNotchCoefficients(ALPHA_WAVE_FREQUENCY, Q_NOTCH, SAMPLING_RATE);
-        pins.digitalWritePin(DigitalPin.P8, 0)
-        pins.digitalWritePin(DigitalPin.P9, 1)
-        if (notInitialized) {
-            control.inBackground(() => {
-                backgroundTask()
-            })
-        }
-    }
-
-    /**
-         * Return alpha waves power
-         */
-
-    //% group="Brain"
-    //% weight=60
-    //% block="brain alpha power"
-    export function brainAlphaPower(): number {
-        if (signalType == Signal.EEG) {
-            return eegAlphaPower;
-        }
-        else {
-            return 0;
-        }
-    }
 }
